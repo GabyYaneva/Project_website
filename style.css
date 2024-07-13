@@ -201,20 +201,10 @@
         rgba(0, 0, 0, 0) 0%,
         rgba(17, 17, 17, 0.6) 10%
     ),
-    url('images/s2.jpg'); /* Уверете се, че пътят към изображението е правилен */
+    url('images/s2.jpg'); /* Пътят към изображението трябва да е правилен */
 }
 
-.main_content h1 {
-    font-size: 4rem;
-    background-color: transparent;
-    background-image: linear-gradient(to top, #ffffff, #dcdcdc); /* Светъл градиент за текста */
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-}
-
+.main_content h1,
 .main_content p {
     font-size: 3rem;
     background-color: transparent;
@@ -227,7 +217,7 @@
 }
 
 .main_btn {
-    font-size: 1rem;
+    font-size: 1.5rem;
     background-color: #1e90ff; /* Син фон за бутона */
     color: white; /* Бял текст */
     padding: 14px 32px;
@@ -238,39 +228,34 @@
     position: relative;
     transition: all 0.35s;
     outline: none;
-}
-
-.main_btn a {
-    position: relative;
-    z-index: 2;
-    color: white; /* Бял текст за линка */
-    text-decoration: none;
-}
-
-.main_btn:after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #4682b4; /* Тъмно син фон за ефекта на бутона */
-    transition: all 0.35s;
-    border-radius: 4px;
+    display: inline-block; /* Добавяме inline-block за да може линка вътре да работи коректно */
+    text-decoration: none; /* Премахваме подчертаването от линка */
 }
 
 .main_btn:hover {
     color: white; /* Бял текст при ховър */
 }
 
-.main_btn:hover:after {
+.main_btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Чист черен цвят за ефекта на бутона */
+    transition: background-color 0.3s ease;
+    z-index: -1; /* Поставяме под бутона, за да не засенчва текста */
+    border-radius: 4px;
+}
+
+.main_btn:hover::after {
+    background-color: rgba(0, 0, 0, 0.2); /* Прозрачен черен цвят при ховър */
 }
 
 .main_img_container {
     text-align: center;
 }
-
 
 /* Responsive Main Section */
 @media screen and (max-width: 760px) {
