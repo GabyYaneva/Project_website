@@ -1,0 +1,383 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1e90ff; /* Син фон */
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar_logo {
+    background-image: linear-gradient(to top, #ffffff, #0000ff); /* Син и бял градиент */
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.navbar_menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar_item {
+    height: 80px;
+}
+
+.navbar_link {
+    color: #ffffff; /* Бял текст */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #6e53ae; /* Синьо-лилав фон */
+    color: #ffffff; /* Бял текст */
+}
+
+.button:hover {
+    background: #d10a0a; /* Червен фон при ховър */
+    transition: all 0.3s ease;
+}
+
+.navbar_link:hover {
+    color: #d10a0a; /* Червен текст при ховър */
+    transition: all 0.3s ease;
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 960px) {
+    .navbar_container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        padding: 0;
+    }
+
+    .navbar_menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+        transition: all 0.5s ease;
+        height: 50vh;
+        z-index: -1;
+    }
+
+    .navbar_menu.active {
+        background: #1e90ff;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 50vh;
+        font-size: 1.6rem;
+    }
+
+    #navbar_logo {
+        padding-left: 25px;
+    }
+
+    .navbar_toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #ffffff; /* Бял цвят */
+    }
+
+    .navbar_item {
+        width: 100%;
+    }
+
+    .navbar_link {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    #mobile_menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    .navbar_btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+
+    .navbar_toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+/* Main Section */
+.main {
+    background-color: #f0f8ff; /* Светъл фон за основния контейнер */
+}
+
+.main_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    background-color: #4682b4; /* Тъмно син фон за контейнера */
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(17, 17, 17, 0.6) 10%
+    ),
+    url('images/s2.jpg'); /* Уверете се, че пътят към изображението е правилен */
+}
+
+.main_content h1 {
+    font-size: 4rem;
+    background-color: transparent;
+    background-image: linear-gradient(to top, #ffffff, #dcdcdc); /* Светъл градиент за текста */
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.main_content p {
+    font-size: 3rem;
+    background-color: transparent;
+    background-image: linear-gradient(to top, #ffffff, #dcdcdc); /* Светъл градиент за текста */
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.main_btn {
+    font-size: 1rem;
+    background-color: #1e90ff; /* Син фон за бутона */
+    color: white; /* Бял текст */
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+}
+
+.main_btn a {
+    position: relative;
+    z-index: 2;
+    color: white; /* Бял текст за линка */
+    text-decoration: none;
+}
+
+.main_btn:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #4682b4; /* Тъмно син фон за ефекта на бутона */
+    transition: all 0.35s;
+    border-radius: 4px;
+}
+
+.main_btn:hover {
+    color: white; /* Бял текст при ховър */
+}
+
+.main_btn:hover:after {
+    width: 100%;
+}
+
+.main_img_container {
+    text-align: center;
+}
+
+
+/* Responsive Main Section */
+@media screen and (max-width: 760px) {
+    .main_container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+
+    .main_content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main_content h1 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .main_content p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main_content h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+
+    .main_content p {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .main_btn {
+        padding: 12px 36px;
+        margin: 2.5rem 0;
+    }
+}
+
+/* Reagen Section */
+.reg{
+    background: rgb(95, 159, 236);
+}
+.reg_content{
+    display: inline;
+    color: #ffffff;
+   
+    
+}
+.reg_content img{
+    width: 50%;
+    height: 50%;
+    justify-items: end;
+     text-align: end;
+}
+
+
+/* Footer */
+.footer_container {
+    background-color: #1e90ff; /* Син фон */
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_link {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer_link_wrapper {
+    display: flex;
+}
+
+.footer_link_item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px;
+    text-align: left;
+    width: 160px;
+    box-sizing: border-box;
+}
+
+.footer_link_item h2 {
+    margin-bottom: 16px;
+    color: #ffffff; /* Бял текст */
+}
+
+.footer_link_item a {
+    color: #dcdcdc; /* Светъл текст */
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer_link_item a:hover {
+    color: #ffffff; /* Бял текст при ховър */
+    transition: 0.3s ease-out;
+}
