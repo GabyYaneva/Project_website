@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainDiv = document.getElementById('main');
     const speciesLink = document.getElementById('vid_main');
     const seeSpeciesBtn = document.getElementById('mqsto_main');
-    const speciesLinkMain = document.getElementById('vidove_main_sp');  
+    const speciesLinkMain = document.getElementById('vidove_main_sp');
+    const wsLink = document.getElementById('ws');
+
     const loadContent = async (url) => {
         try {
             const response = await fetch(url);
@@ -31,16 +33,23 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         loadContent('vidove_main.html');
     });
+
     speciesLinkMain.addEventListener('click', (e) => {
         e.preventDefault();
         loadContent('vidove_main.html');
     });
-   
+
     seeSpeciesBtn.addEventListener('click', (e) => {
         e.preventDefault();
         loadContent('regioni+main.html');
     });
+
+    wsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadContent('ws.html');
+    });
 });
+
 
 //home link
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,3 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
         mainDiv.innerHTML = initialContent; // Зареждаме първоначалното съдържание на main
     });
 });
+
+
+

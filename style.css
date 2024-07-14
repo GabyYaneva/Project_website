@@ -284,13 +284,13 @@
     }
 
     .main_content h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-top: 2rem;
     }
 
     .main_content p {
         margin-top: 1rem;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -315,12 +315,12 @@
 
 /* Footer */
 .footer_container {
-    background-color: #1e90ff; /* Син фон */
+    background-color: #9bc6f1; /* Син фон */
     padding: 5rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .footer_link {
@@ -331,7 +331,7 @@
 }
 
 .footer_link_wrapper {
-    display: flex;
+    display:inline-flex;
 }
 
 .footer_link_item {
@@ -346,11 +346,14 @@
 
 .footer_link_item h2 {
     margin-bottom: 16px;
-    color: #ffffff; /* Бял текст */
+    color: #716f94; /* Бял текст */
 }
-
+.footer_link_item p {
+    margin-bottom: 14px;
+    color: #716f94; /* Бял текст */
+}
 .footer_link_item a {
-    color: #dcdcdc; /* Светъл текст */
+    color: #535977; /* Светъл текст */
     text-decoration: none;
     margin-bottom: 0.5rem;
 }

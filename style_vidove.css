@@ -74,3 +74,47 @@ body {
     top: 0;
     left: 0;
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafd;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.shark_info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shark_info h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.shark_info p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.main_btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.main_btn:hover {
+    background-color: #0056b3;
+}
