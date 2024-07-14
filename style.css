@@ -188,9 +188,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-self: center;
+    justify-self:flex-end;
     margin: 0 auto;
-    height: 90vh;
+    height: 110vh;
     background-color: #4682b4; /* Тъмно син фон за контейнера */
     z-index: 1;
     width: 100%;
@@ -204,12 +204,21 @@
     url('images/s2.jpg'); /* Пътят към изображението трябва да е правилен */
 }
 
-.main_content h1,
-.main_content p {
-    font-size: 3rem;
+.main_content h1{
+    font-size: 2rem;
     background-color: transparent;
     background-image: linear-gradient(to top, #ffffff, #dcdcdc); /* Светъл градиент за текста */
     background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+.main_content p {
+    font-size: 1.1rem;
+    background-color: transparent;
+    background-image: linear-gradient(to top, #ffffff, #dcdcdc); /* Светъл градиент за текста */
+    background-size: 80%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -288,36 +297,20 @@
 @media screen and (max-width: 480px) {
     .main_content h1 {
         font-size: 2rem;
-        margin-top: 3rem;
+        margin-top: 2.5rem;
     }
 
     .main_content p {
-        margin-top: 2rem;
-        font-size: 1.5rem;
+        margin-top: 1rem;
+        font-size: 1rem;
     }
 
     .main_btn {
-        padding: 12px 36px;
-        margin: 2.5rem 0;
+        padding: 10px 30px;
+        margin: 2rem 0;
     }
 }
 
-/* Reagen Section */
-.reg{
-    background: rgb(95, 159, 236);
-}
-.reg_content{
-    display: inline;
-    color: #ffffff;
-   
-    
-}
-.reg_content img{
-    width: 50%;
-    height: 50%;
-    justify-items: end;
-     text-align: end;
-}
 
 
 /* Footer */
