@@ -1,19 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const mainDiv = document.getElementById('main');
     const mobileMenu = document.getElementById('mobile_menu');
     const navbarMenu = document.querySelector('.navbar_menu');
-
-    mobileMenu.addEventListener('click', () => {
-        mobileMenu.classList.toggle('is_active');
-        navbarMenu.classList.toggle('active');
-    });
-});
-///linkowe
-document.addEventListener("DOMContentLoaded", () => {
-    const mainDiv = document.getElementById('main');
     const speciesLink = document.getElementById('vid_main');
     const seeSpeciesBtn = document.getElementById('mqsto_main');
     const speciesLinkMain = document.getElementById('vidove_main_sp');
-    const wsLink = document.getElementById('ws');
+    const whiteLink = document.getElementById('ws');
+    const tigerLink = document.getElementById('ts');
+    const whaleLink = document.getElementById('whs');
+    const reagen1Link = document.getElementById('r1');
+    const reagen2Link = document.getElementById('r2');
+    const reagen3Link = document.getElementById('r3');
+    const homeLink = document.getElementById('home');
+    const initialContent = mainDiv.innerHTML; // Запазваме първоначалното съдържание на main
+
+    // Превключване на мобилното меню
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is_active');
+            navbarMenu.classList.toggle('active');
+        });
+    }
 
     const loadContent = async (url) => {
         try {
@@ -22,60 +29,119 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error('Network response was not ok ' + response.statusText);
             }
             const data = await response.text();
-            mainDiv.innerHTML = data;
+
+            // Извличане на стиловете и съдържанието в main елемента
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const newContent = doc.querySelector('.main').innerHTML;
+            const styles = doc.querySelectorAll('link[rel="stylesheet"], style');
+
+            // Премахване на старите стилове
+            document.querySelectorAll('link.dynamic-style, style.dynamic-style').forEach(style => style.remove());
+
+            // Добавяне на новите стилове
+            styles.forEach(style => {
+                style.classList.add('dynamic-style');
+                document.head.appendChild(style);
+            });
+
+            mainDiv.innerHTML = newContent;
+            attachEventListeners(); // Привързване на събитията отново след зареждането на новото съдържание
         } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);
             mainDiv.innerHTML = '<p>Error loading content.</p>';
         }
     };
 
-    speciesLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        loadContent('vidove_main.html');
-    });
+    const attachEventListeners = () => {
+        document.querySelectorAll('.navbar_link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = link.getAttribute('href');
+                loadContent(url);
+            });
+        });
 
-    speciesLinkMain.addEventListener('click', (e) => {
-        e.preventDefault();
-        loadContent('vidove_main.html');
-    });
-
-    seeSpeciesBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        loadContent('regioni+main.html');
-    });
-
-    wsLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        loadContent('ws.html');
-    });
-});
-
-
-//home link
-document.addEventListener("DOMContentLoaded", () => {
-    const mainDiv = document.getElementById('main');
-    const homeLink = document.getElementById('home');
-    const initialContent = mainDiv.innerHTML; // Запазваме първоначалното съдържание на main
-
-    const loadContent = async (url) => {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            const data = await response.text();
-            mainDiv.innerHTML = data; // Зареждаме новото съдържание в main
-        } catch (error) {
-            console.error('There has been a problem with your fetch operation:', error);
-            mainDiv.innerHTML = '<p>Error loading content.</p>'; // В случай на грешка, показваме съобщение за грешка
-        }
+        document.querySelectorAll('.main_btn.species_link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent(link.getAttribute('href'));
+            });
+        });
     };
 
-    homeLink.addEventListener('click', (e) => {
-        e.preventDefault(); // Предотвратяваме стандартното поведение на линка
-        mainDiv.innerHTML = initialContent; // Зареждаме първоначалното съдържание на main
-    });
+    // Линкове за съдържание
+    if (speciesLink) {
+        speciesLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('vidove_main.html');
+        });
+    }
+
+    if (speciesLinkMain) {
+        speciesLinkMain.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('vidove_main.html');
+        });
+    }
+
+    if (seeSpeciesBtn) {
+        seeSpeciesBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('regioni_main.html');
+        });
+    }
+
+    if (whiteLink) {
+        whiteLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('ws.html');
+        });
+    }
+
+    if (tigerLink) {
+        tigerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('ts.html');
+        });
+    }
+
+    if (whaleLink) {
+        whaleLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('whs.html');
+        });
+    }
+
+    if (reagen1Link) {
+        reagen1Link.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('r1.html');
+        });
+    }
+
+    if (reagen2Link) {
+        reagen2Link.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('r2.html');
+        });
+    }
+
+    if (reagen3Link) {
+        reagen3Link.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadContent('r3.html');
+        });
+    }
+
+    // Home link
+    if (homeLink) {
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Предотвратяваме стандартното поведение на линка
+            mainDiv.innerHTML = initialContent; // Зареждаме първоначалното съдържание на main
+            attachEventListeners(); // Привързване на събитията отново след зареждането на новото съдържание
+        });
+    }
+
+    attachEventListeners(); // Първоначално привързване на събитията при зареждане на страницата
 });
-
-
-

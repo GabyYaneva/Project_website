@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #1e90ff;
+    color: white;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.main {
+    padding: 20px;
+}
+
+.text {
+    margin-bottom: 20px;
+}
+
+.text h2 {
+    color: #0047ba;
+}
+
+.text h3 {
+    color: #004173;
+}
+
+.video-placeholder {
+    position: relative;
+    padding-top: 42.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin: 20px 0;
+}
+
+.video-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    border: 0;
+}
+.with-image {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .with-image {
+        flex-direction: column;
+    }
+
+    .image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
