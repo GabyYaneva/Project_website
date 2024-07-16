@@ -2,16 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainDiv = document.getElementById('main');
     const mobileMenu = document.getElementById('mobile_menu');
     const navbarMenu = document.querySelector('.navbar_menu');
-    const speciesLink = document.getElementById('vid_main');
-    const seeSpeciesBtn = document.getElementById('mqsto_main');
-    const speciesLinkMain = document.getElementById('vidove_main_sp');
-    const whiteLink = document.getElementById('ws');
-    const tigerLink = document.getElementById('ts');
-    const whaleLink = document.getElementById('whs');
-    const reagen1Link = document.getElementById('r1');
-    const reagen2Link = document.getElementById('r2');
-    const reagen3Link = document.getElementById('r3');
-    const homeLink = document.getElementById('home');
     const initialContent = mainDiv.innerHTML; // Запазваме първоначалното съдържание на main
 
     // Превключване на мобилното меню
@@ -30,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const data = await response.text();
 
-            // Извличане на стиловете и съдържанието в main елемента
+            // Извличане на съдържанието в main елемента
             const parser = new DOMParser();
             const doc = parser.parseFromString(data, 'text/html');
             const newContent = doc.querySelector('.main').innerHTML;
@@ -42,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Добавяне на новите стилове
             styles.forEach(style => {
                 style.classList.add('dynamic-style');
-                document.head.appendChild(style);
+                document.head.appendChild(style.cloneNode(true));
             });
 
             mainDiv.innerHTML = newContent;
@@ -68,80 +58,92 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadContent(link.getAttribute('href'));
             });
         });
+
+        // Линкове за съдържание
+        const speciesLink = document.getElementById('vid_main');
+        const speciesLinkMain = document.getElementById('vidove_main_sp');
+        const seeSpeciesBtn = document.getElementById('mqsto_main');
+        const whiteLink = document.getElementById('ws');
+        const tigerLink = document.getElementById('ts');
+        const whaleLink = document.getElementById('whs');
+        const reagen1Link = document.getElementById('r1');
+        const reagen2Link = document.getElementById('r2');
+        const reagen3Link = document.getElementById('r3');
+
+        if (speciesLink) {
+            speciesLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('vidove_main.html');
+            });
+        }
+
+        if (speciesLinkMain) {
+            speciesLinkMain.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('vidove_main.html');
+            });
+        }
+
+        if (seeSpeciesBtn) {
+            seeSpeciesBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('regioni_main.html');
+            });
+        }
+
+        if (whiteLink) {
+            whiteLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('ws.html');
+            });
+        }
+
+        if (tigerLink) {
+            tigerLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('ts.html');
+            });
+        }
+
+        if (whaleLink) {
+            whaleLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('whs.html');
+            });
+        }
+
+        if (reagen1Link) {
+            reagen1Link.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('r1.html');
+            });
+        }
+
+        if (reagen2Link) {
+            reagen2Link.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('r2.html');
+            });
+        }
+
+        if (reagen3Link) {
+            reagen3Link.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('r3.html');
+            });
+        }
+
+        // Home link
+        const homeLink = document.getElementById('home');
+        if (homeLink) {
+            homeLink.addEventListener('click', (e) => {
+                e.preventDefault(); // Предотвратяваме стандартното поведение на линка
+                mainDiv.innerHTML = initialContent; // Зареждаме първоначалното съдържание на main
+                attachEventListeners(); // Привързване на събитията отново след зареждането на новото съдържание
+            });
+        }
     };
 
-    // Линкове за съдържание
-    if (speciesLink) {
-        speciesLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('vidove_main.html');
-        });
-    }
-
-    if (speciesLinkMain) {
-        speciesLinkMain.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('vidove_main.html');
-        });
-    }
-
-    if (seeSpeciesBtn) {
-        seeSpeciesBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('regioni_main.html');
-        });
-    }
-
-    if (whiteLink) {
-        whiteLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('ws.html');
-        });
-    }
-
-    if (tigerLink) {
-        tigerLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('ts.html');
-        });
-    }
-
-    if (whaleLink) {
-        whaleLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('whs.html');
-        });
-    }
-
-    if (reagen1Link) {
-        reagen1Link.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('r1.html');
-        });
-    }
-
-    if (reagen2Link) {
-        reagen2Link.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('r2.html');
-        });
-    }
-
-    if (reagen3Link) {
-        reagen3Link.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadContent('r3.html');
-        });
-    }
-
-    // Home link
-    if (homeLink) {
-        homeLink.addEventListener('click', (e) => {
-            e.preventDefault(); // Предотвратяваме стандартното поведение на линка
-            mainDiv.innerHTML = initialContent; // Зареждаме първоначалното съдържание на main
-            attachEventListeners(); // Привързване на събитията отново след зареждането на новото съдържание
-        });
-    }
-
-    attachEventListeners(); // Първоначално привързване на събитията при зареждане на страницата
+    // Първоначално привързване на събитията при зареждане на страницата
+    attachEventListeners();
 });
