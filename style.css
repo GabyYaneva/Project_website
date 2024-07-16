@@ -30,7 +30,7 @@
 }
 
 #navbar_logo {
-    background-image: linear-gradient(to top, #ffffff, #0000ff); /* Син и бял градиент */
+    background-image: linear-gradient(to top, #ffffff, #1212a7); /* Син и бял градиент */
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -82,7 +82,7 @@
     width: 100%;
     border: none;
     outline: none;
-    background: #6e53ae; /* Синьо-лилав фон */
+    background: #4c0ddf; /* Синьо-лилав фон */
     color: #ffffff; /* Бял текст */
 }
 

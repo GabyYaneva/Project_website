@@ -42,13 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
             mainDiv.innerHTML = '<p>Error loading content.</p>';
         }
     };
-
+ // Функция за привързване на събитията
     const attachEventListeners = () => {
         document.querySelectorAll('.navbar_link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const url = link.getAttribute('href');
                 loadContent(url);
+
+                // Добавено: Затваряне на мобилното меню при кликване върху линк
+                navbarMenu.classList.remove('active');
+                mobileMenu.classList.remove('is_active');
             });
         });
 
@@ -69,7 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const reagen1Link = document.getElementById('r1');
         const reagen2Link = document.getElementById('r2');
         const reagen3Link = document.getElementById('r3');
+        const signLink=document.getElementById('sign_main');
 
+        if (signLink) {
+            signLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                loadContent('sign_form.html');
+            });
+        }
         if (speciesLink) {
             speciesLink.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -132,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadContent('r3.html');
             });
         }
+        
 
         // Home link
         const homeLink = document.getElementById('home');

@@ -1,0 +1,56 @@
+body {
+    background-color: rgba(109, 168, 219, 0.228);
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Центрира по вертикалата */
+ 
+}
+
+.main {
+    
+  flex-direction:column;
+  display: flex;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #adccf7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px; /* Максимална ширина за по-добър изглед на по-широки екрани */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%; /* Разширява формите за да изглежда добре */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 80%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group button {
+    background-color: #1e90ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    align-self: center; /* Центриране само на бутона */
+}
+
+.form-group button:hover {
+    background-color: #0e7bff;
+}
+
