@@ -133,13 +133,13 @@
     #navbar_logo {
         padding-left: 25px;
     }
-
+/* трите линии за меню*/
     .navbar_toggle .bar {
         width: 25px;
         height: 3px;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
-        background: #ffffff; /* Бял цвят */
+        background: #fcf9f9; /* Бял цвят */
     }
 
     .navbar_item {
